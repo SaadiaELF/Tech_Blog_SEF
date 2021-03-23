@@ -5,6 +5,12 @@ router.get('/', async (req, res) => {
   res.render('homepage', {logged_in: req.session.logged_in,});
 });
 
+router.get('/dashboard', (req, res) => {
+  res.render('dashboard');
+});
+router.get('/newpost', (req, res) => {
+  res.render('newpost');
+});
 router.get('/login', (req, res) => {
   if (req.session.logged_in) {
     res.redirect('/');
@@ -13,8 +19,11 @@ router.get('/login', (req, res) => {
   res.render('login');
 });
 
+
 router.get('/signup', (req, res) => {
   res.render('signup');
 });
+
+
 
 module.exports = router;
