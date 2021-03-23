@@ -2,11 +2,11 @@ const router = require('express').Router();
 
 router.get('/', async (req, res) => {
   // Send the rendered Handlebars.js template back as the response
-  res.render('homepage', {logged_in: req.session.logged_in,});
+  res.render('homepage', { logged_in: req.session.logged_in, });
 });
 
 router.get('/dashboard', (req, res) => {
-  res.render('dashboard');
+  res.render('dashboard', { logged_in: req.session.logged_in, });
 });
 router.get('/newpost', (req, res) => {
   res.render('newpost');
