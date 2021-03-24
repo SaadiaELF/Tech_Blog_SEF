@@ -1,0 +1,20 @@
+[
+  {
+    "title": "The MVC",
+    "content": "The Model-View-Controller (MVC) is an architectural pattern that separates an application into three main logical components: the model, the view, and the controller. Each of these components are built to handle specific development aspects of an application. MVC is one of the most frequently used industry-standard web development framework to create scalable and extensible projects.",
+    "date": "2021-03-23",
+    "author_id" : "1"
+  },
+  {
+    "title": "The ORM",
+    "content": "Object Role Modeling (ORM) is a powerful method for designing and querying database models at the conceptual level, where the application is described in terms easily understood by non-technical users. In practice, ORM data models often capture more business rules, and are easier to validate and evolve than data models in other approaches.",
+    "date": "2020-05-10",
+    "author_id" : "2"
+  },
+  {
+    "title": "What does Foreign Key mean?",
+    "content": "A foreign key is a column or group of columns in a relational database table that provides a link between data in two tables. It acts as a cross-reference between tables because it references the primary key of another table, thereby establishing a link between them.The majority of tables in a relational database system adhere to the foreign key concept. In complex databases and data warehouses, data in a domain must be added across multiple tables, thus maintaining a relationship between them. The concept of referential integrity is derived from foreign key theory. Foreign keys and their implementation are more complex than primary keys.",
+    "date": "2021-01-03",
+    "author_id" : "5"
+  }
+]
