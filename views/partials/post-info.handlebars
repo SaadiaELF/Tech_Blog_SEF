@@ -1,12 +1,13 @@
-  <div class="card mb-2">
-    <div class="card-header">
-      <h2>{{title}}</h2>
-    </div>
-    <div class="card-body">
-      <p class="card-text">{{content}}</p>
-      <a href="#" class="btn btn-dark text-center"> Read more</a>
-    </div>
-    <div class="card-footer text-muted">
-      Created by {{user.username}} on {{date}}
-    </div>
+<div class="card mb-2">
+  <div class="card-header">
+    <h2>{{title}}</h2>
   </div>
+  <div class="card-body">
+    <p class="card-text">{{content}}</p>
+  </div>
+  <div class="card-footer text-muted">
+    Created by {{user.username}} on {{date}}
+      <a href="/post/{{id}}" class="btn btn-dark text-center float-right"> + Add Comment </a>
+  </div>
+  </div>
+
