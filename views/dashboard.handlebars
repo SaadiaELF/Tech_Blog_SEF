@@ -2,12 +2,19 @@
   <div class="card-header">
     <h3> Your Dashboard </h3>
   </div>
-  <main class="container container-fluid mt-5 mb-5">
-  {{#each posts as |post| }}
-  {{>post-info}}
-  {{/each}}
-</main>
-  <div class="card-body text-center">
-    <a href="/newpost" class="btn btn-danger m-3"> + New post </a>
+  <div class="card-body">
+    <main class="container container-fluid mt-5 mb-5">
+      {{#each posts as |post| }}
+      {{>post-info}}
+      <div class="btn-group btn-group" role="group">
+        <button class="btn btn-danger" style="width: 150px;">Delete</button>
+        <button class="btn btn-info" style="width: 150px;">Update</button>
+      </div>
+      {{/each}}
+    </main>
+    <div class="card-footer text-muted">
+      <a href="/newpost" class="btn btn-danger m-3"> + New post </a>
+    </div>
   </div>
 </div>
+<script src="/js/post.js"></script>
