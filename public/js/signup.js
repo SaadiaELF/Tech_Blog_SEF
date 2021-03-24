@@ -16,7 +16,6 @@ const signupFormHandler = async (event) => {
   } else {
     alert('Failed to sign in');
   }
-
 };
 
 document
