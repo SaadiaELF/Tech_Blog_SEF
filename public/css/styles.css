@@ -3,6 +3,7 @@ html {
     scroll-behavior: smooth;
   }
 body {
+    font-family: 'Titillium Web', sans-serif , Georgia, 'Times New Roman', Times, serif;
     background-color: #ecedf1;
 }
 /* Navbar styling */
@@ -10,6 +11,9 @@ nav {
     opacity: 90%;
     font-family: 'Share Tech Mono', monospace, Georgia, 'Times New Roman', Times;
     font-weight: bold;
+}
+.navbar-brand{
+    font-family: 'Anton', sans-serif, Georgia, 'Times New Roman', Times, serif;
 }
 /* Masthead styling */
 .masthead {
