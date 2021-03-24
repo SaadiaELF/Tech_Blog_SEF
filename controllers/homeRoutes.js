@@ -34,7 +34,7 @@ router.get('/post/:id', withAuth, async (req, res) => {
     });
 
     const post = postData.get({ plain: true });
-    res.render('post', {post, logged_in: req.session.logged_in });
+    res.render('post', { post, logged_in: req.session.logged_in });
 
   } catch (err) {
     console.log(err);
@@ -42,10 +42,29 @@ router.get('/post/:id', withAuth, async (req, res) => {
   }
 });
 
+router.get('/dashboard', async (req, res) => {
+  try {
+    const postData = await Post.findAll({
+      where: {
+        author_id: req.session.author_id
+      },
+      include: [
+        {
+          model: User,
+          attributes: ['username'],
+        },
+      ],
+    });
 
-router.get('/dashboard', (req, res) => {
-  res.render('dashboard', { logged_in: req.session.logged_in });
+    const posts = postData.map((post) => post.get({ plain: true }));
+
+    res.render('dashboard', { posts, logged_in: req.session.logged_in });
+
+  } catch (error) {
+    res.status(500).json(error);
+  }
 });
+
 router.get('/newpost', (req, res) => {
   res.render('newpost', { logged_in: req.session.logged_in });
 });
