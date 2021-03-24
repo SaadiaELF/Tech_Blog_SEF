@@ -1,0 +1,27 @@
+<main class="container container-fluid mt-5 mb-5">
+
+  <div class="card mb-2">
+    <div class="card-header">
+      <h2>{{post.title}}</h2>
+    </div>
+    <div class="card-body">
+      <p class="card-text">{{post.content}}</p>
+    </div>
+    <div class="card-footer text-muted">
+      Created by {{user.username}} on {{post.date}}
+    </div>
+  </div>
+  <div class="card mb-2">
+    <div class="card-header">
+      <h4>Create New Comment</h4>
+    </div>
+    <div class="card-body">
+      <form class="m-3">
+        <div class="form-group m-3">
+          <label for="comment">Comment</label>
+          <textarea class="form-control" id="comment" rows="3"></textarea>
+        </div>
+        <button type="submit" class="btn btn-danger m-3">Submit</button>
+      </form>
+    </div>
+</main>
