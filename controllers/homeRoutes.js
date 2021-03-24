@@ -1,15 +1,31 @@
 const router = require('express').Router();
+const { User, Post } = require('../models');
 
 router.get('/', async (req, res) => {
-  // Send the rendered Handlebars.js template back as the response
-  res.render('homepage', { logged_in: req.session.logged_in, });
+  try {
+    const postData = await Post.findAll({
+      include: [
+        {
+          model: User,
+          attributes: ['username'],
+        },
+      ],
+    });
+
+    const posts = postData.map((post) =>post.get({ plain: true })  );
+
+    res.render('homepage', { posts, logged_in: req.session.logged_in });
+
+  } catch (error) {
+    res.status(500).json(err);
+  }
 });
 
 router.get('/dashboard', (req, res) => {
-  res.render('dashboard', { logged_in: req.session.logged_in, });
+  res.render('dashboard', { logged_in: req.session.logged_in});
 });
 router.get('/newpost', (req, res) => {
-  res.render('newpost');
+  res.render('newpost', { logged_in: req.session.logged_in});
 });
 router.get('/login', (req, res) => {
   if (req.session.logged_in) {
