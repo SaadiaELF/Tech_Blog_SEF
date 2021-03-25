@@ -3,12 +3,12 @@
     <h3> Your Dashboard </h3>
   </div>
   <div class="card-body">
-    <main class="container container-fluid mt-5 mb-5">
+    <main class="container container-fluid mt-5 mb-5 post-list">
       {{#each posts as |post| }}
       {{>post-info}}
       <div class="btn-group btn-group" role="group">
-        <button class="btn btn-danger" style="width: 150px;">Delete</button>
-        <button class="btn btn-info" style="width: 150px;">Update</button>
+        <button type="button" class="btn btn-danger" style="width: 150px;" data-id="{{post.id}}">DELETE</button>
+        <button type="button" class="btn btn-info" style="width: 150px;">UPDATE</button>
       </div>
       {{/each}}
     </main>
@@ -17,3 +17,4 @@
     <a href="/newpost" class="btn btn-danger m-3"> + New post </a>
   </div>
 </div>
+<script src="/js/delete-post.js"></script>
