@@ -8,7 +8,7 @@
       {{>post-info}}
       <div class="btn-group btn-group" role="group">
         <button type="button" class="btn btn-danger" style="width: 150px;" data-id="{{post.id}}">DELETE</button>
-        <button type="button" class="btn btn-info" style="width: 150px;">UPDATE</button>
+        <a href ="/edit-post/{{post.id}}" class="btn btn-info" style="width: 150px;">UPDATE</a>
       </div>
       {{/each}}
     </main>
