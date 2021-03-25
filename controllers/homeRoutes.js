@@ -65,6 +65,34 @@ router.get('/dashboard', async (req, res) => {
   }
 });
 
+router.get('/edit-post/:id', async (req, res) => {
+  try {
+    const postData = await Post.findOne({
+      where: {
+        id: req.params.id
+      },
+      attributes: [
+        'id',
+        'title',
+        'content',
+      ],
+      include: [
+        {
+          model: User,
+          attributes: ['username'],
+        },
+      ],
+    });
+
+    const post = postData.get({ plain: true });
+
+    res.render('edit-post', { post, logged_in: req.session.logged_in });
+
+  } catch (error) {
+    res.status(500).json(error);
+  }
+});
+
 router.get('/newpost', (req, res) => {
   res.render('newpost', { logged_in: req.session.logged_in });
 });
