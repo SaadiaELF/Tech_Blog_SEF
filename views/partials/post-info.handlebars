@@ -1,6 +1,8 @@
 <div class="card mt-2 mb-2">
   <div class="card-header">
-    <h2>{{title}}</h2>
+    <a href="/post/{{id}}">
+      <h2>{{title}}</h2>
+    </a>
   </div>
   <div class="card-body">
     <p class="card-text">{{content}}</p>
@@ -8,6 +10,6 @@
   <div class="card-footer text-muted">
     <!-- Pass date value to the helper function -->
     Created by {{user.username}} on {{format_date date}}
-    <a href="/post/{{id}}" class="btn btn-dark text-center float-right"> + Add Comment </a>
+    <a href="/post/{{id}}/add-comment" class="btn btn-dark text-center float-right"> + Add Comment </a>
   </div>
 </div>
