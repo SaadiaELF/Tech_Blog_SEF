@@ -1,5 +1,6 @@
 <main class="container container-fluid mt-5 mb-5">
   {{#each posts as |post| }}
   {{>post-info}}
+  {{> comment post.comments}}
   {{/each}}
 </main>
