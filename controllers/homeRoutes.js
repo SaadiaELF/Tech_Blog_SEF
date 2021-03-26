@@ -35,7 +35,7 @@ router.get('/', async (req, res) => {
   }
 });
 
-router.get('/post/:id', withAuth, async (req, res) => {
+router.get('/post/:id',  async (req, res) => {
   try {
     const postData = await Post.findByPk(req.params.id, {
       attributes: [
@@ -61,6 +61,39 @@ router.get('/post/:id', withAuth, async (req, res) => {
 
     const post = postData.get({ plain: true });
     res.render('post', { post, logged_in: req.session.logged_in });
+
+  } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
+  }
+});
+
+router.get('/post/:id/add-comment', withAuth, async (req, res) => {
+  try {
+    const postData = await Post.findByPk(req.params.id, {
+      attributes: [
+        'id',
+        'title',
+        'content',
+        'date',
+        'author_id'
+      ],
+      include: [
+        {
+          model: User,
+          attributes: ['id', 'username'],
+        },
+        {
+          model: Comment,
+          include: {
+            model: User,
+            attributes: ['id', 'username']
+          },
+        }],
+    });
+
+    const post = postData.get({ plain: true });
+    res.render('add-comment', { post, logged_in: req.session.logged_in });
 
   } catch (err) {
     console.log(err);
