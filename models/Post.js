@@ -3,6 +3,7 @@ const sequelize = require('../config/connection');
 
 class Post extends Model { }
 
+// set up fields and rules for Post model
 Post.init(
   {
     id: {
@@ -35,6 +36,7 @@ Post.init(
       },
     },
   },
+  // Link to database connection
   {
     sequelize,
     timestamps: false,

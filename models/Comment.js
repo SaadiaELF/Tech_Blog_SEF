@@ -3,6 +3,7 @@ const sequelize = require('../config/connection');
 
 class Comment extends Model { }
 
+// set up fields and rules for Comment model
 Comment.init(
   {
     id: {
@@ -38,6 +39,7 @@ Comment.init(
       },
     },
   },
+  // Link to database connection
   {
     sequelize,
     timestamps: false,

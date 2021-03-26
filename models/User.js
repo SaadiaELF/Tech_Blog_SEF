@@ -3,11 +3,13 @@ const bcrypt = require('bcrypt');
 const sequelize = require('../config/connection');
 
 class User extends Model {
+  // This instance method to check the hashed password
   checkPassword(loginPw) {
     return bcrypt.compareSync(loginPw, this.password);
   }
 }
 
+// set up fields and rules for User model
 User.init(
   {
     id: {
@@ -29,12 +31,14 @@ User.init(
     },
   },
   {
+    // hook to hash password before adding it to the database.
     hooks: {
       beforeCreate: async (newUserData) => {
         newUserData.password = await bcrypt.hash(newUserData.password, 10);
         return newUserData;
       },
     },
+    // Link to database connection
     sequelize,
     timestamps: false,
     freezeTableName: true,
