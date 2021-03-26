@@ -1,0 +1,10 @@
+{{#each this}}
+<div class="card mt-2 mb-2 border-secondary">
+  <div class="card-header">
+    <b>{{user.username}} :</b> {{format_date time}} at {{format_time time}}
+  </div>
+  <div class="card-body">
+    <p class="card-text">{{comment_text}}</p>
+  </div>
+</div>
+{{/each}}
