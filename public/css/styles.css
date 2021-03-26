@@ -1,7 +1,4 @@
-/* smooth scroll */
-html {
-    scroll-behavior: smooth;
-  }
+/* body styling */
 body {
     font-family: 'Titillium Web', sans-serif , Georgia, 'Times New Roman', Times, serif;
     background-color: #ecedf1;
@@ -22,7 +19,6 @@ nav {
     font-family: 'Titillium Web', sans-serif , Georgia, 'Times New Roman', Times, serif;
     font-weight: 500;
 }
-
 
 /* styling footer */
 footer {
