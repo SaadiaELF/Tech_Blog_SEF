@@ -9,9 +9,10 @@
       <form class="new-comment-form m-3">
         <div class="form-group m-3">
           <label for="comment">Comment</label>
-          <textarea class="form-control" id="comment" rows="3"></textarea>
+          <textarea class="form-control" id="comment" rows="3" required minlength="10"></textarea>
         </div>
-        <button id="submitBtn" type="submit" class="btn btn-danger m-3" value="{{post.id}}">Submit</button>
+        <button id="submitBtn" type="submit" class="btn btn-danger m-3" style="width: 150px;" value="{{post.id}}">Submit</button>
+        <a href="/" class="btn btn-secondary" style="width: 150px;">CANCEL</a>
       </form>
     </div>
 </main>
