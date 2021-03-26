@@ -14,14 +14,14 @@ router.get('/', async (req, res) => {
       include: [
         {
           model: User,
-          attributes: ['username'],
+          attributes: ['id','username'],
         },
         {
           model: Comment,
           attributes: ['comment_text','time'],
           include: {
             model: User,
-            attributes: ['username']
+            attributes: ['id','username']
           },
         }],
     });
@@ -43,18 +43,19 @@ router.get('/post/:id', withAuth, async (req, res) => {
         'id',
         'title',
         'content',
-        'date'
+        'date',
+        'author_id'
       ],
       include: [
         {
           model: User,
-          attributes: ['username'],
+          attributes: ['id','username'],
         },
         {
           model: Comment,
           include: {
             model: User,
-            attributes: ['username']
+            attributes: ['id','username']
           },
         }],
     });
