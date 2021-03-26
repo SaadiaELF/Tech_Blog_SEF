@@ -4,11 +4,13 @@
   </div>
   <div class="card-body">
     <main class="container container-fluid mt-5 mb-5 post-list">
+      <!-- Loop over each object in the posts array -->
       {{#each posts as |post| }}
+      <!-- Render post-info partial -->
       {{>post-info}}
       <div class="btn-group btn-group" role="group">
         <button type="button" class="btn btn-danger" style="width: 150px;" data-id="{{post.id}}">DELETE</button>
-        <a href ="/edit-post/{{post.id}}" class="btn btn-info" style="width: 150px;">UPDATE</a>
+        <a href="/edit-post/{{post.id}}" class="btn btn-info" style="width: 150px;">UPDATE</a>
       </div>
       {{/each}}
     </main>

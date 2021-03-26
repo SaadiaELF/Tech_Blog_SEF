@@ -1,5 +1,7 @@
 <main class="container container-fluid mt-5 mb-5">
+  <!-- Loop over each object in the posts array -->
   {{#each posts as |post| }}
+  <!-- Render post-info partial -->
   {{>post-info}}
   {{/each}}
 </main>
