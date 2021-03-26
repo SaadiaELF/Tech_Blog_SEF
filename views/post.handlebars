@@ -3,20 +3,4 @@
   {{>post-info post}}
   <!-- Render comment partial -->
   {{> comment post.comments}}
-  <div class="card mb-2">
-    <div class="card-header">
-      <h4>Create New Comment</h4>
-    </div>
-    <div class="card-body">
-      <form class="new-comment-form m-3">
-        <div class="form-group m-3">
-          <label for="comment">Comment</label>
-          <textarea class="form-control" id="comment" rows="3" required minlength="10"></textarea>
-        </div>
-        <button id="submitBtn" type="submit" class="btn btn-danger m-3" style="width: 150px;"
-          value="{{post.id}}">Submit</button>
-        <a href="/" class="btn btn-secondary" style="width: 150px;">CANCEL</a>
-      </form>
-    </div>
 </main>
-<script src="/js/add-comment.js"></script>
