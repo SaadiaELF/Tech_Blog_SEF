@@ -36,6 +36,7 @@
       <!-- Navbar tabs -->
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto">
+        <!-- Conditionally render Dashboard or login or logout links -->
           {{#if logged_in}}
           <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
           <li class="nav-item"><a class="nav-link" href="/dashboard">Dashboard</a></li>
@@ -56,6 +57,7 @@
     <p class="text-center text-muted "> © 2021 All Rights Reserved, by Saadia El fekak </p>
   </footer>
 
+  <!-- Render script for logged in users only -->
   {{#if logged_in}}
   <script src="/js/logout.js"></script>
   {{/if}}
