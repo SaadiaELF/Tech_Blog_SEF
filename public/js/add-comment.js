@@ -15,7 +15,7 @@ const commentHandler = async (event) => {
 
     if (response.ok) {
       // If successful, refresh the page
-      document.location.reload();
+      document.location.replace(`/post/${post_id}`);
     } else {
       alert('Failed to create a comment');
     }
