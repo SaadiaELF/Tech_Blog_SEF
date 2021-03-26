@@ -14,14 +14,14 @@ router.get('/', async (req, res) => {
       include: [
         {
           model: User,
-          attributes: ['id','username'],
+          attributes: ['id', 'username'],
         },
         {
           model: Comment,
-          attributes: ['comment_text','time'],
+          attributes: ['comment_text', 'time'],
           include: {
             model: User,
-            attributes: ['id','username']
+            attributes: ['id', 'username']
           },
         }],
     });
@@ -29,7 +29,6 @@ router.get('/', async (req, res) => {
     const posts = postData.map((post) => post.get({ plain: true }));
 
     res.render('homepage', { posts, logged_in: req.session.logged_in });
-    console.log(posts)
   } catch (error) {
     console.log(error);
     res.status(500).json(error);
@@ -49,13 +48,13 @@ router.get('/post/:id', withAuth, async (req, res) => {
       include: [
         {
           model: User,
-          attributes: ['id','username'],
+          attributes: ['id', 'username'],
         },
         {
           model: Comment,
           include: {
             model: User,
-            attributes: ['id','username']
+            attributes: ['id', 'username']
           },
         }],
     });

@@ -2,6 +2,8 @@ const router = require('express').Router();
 const { Post } = require('../../models');
 const withAuth = require('../../utils/auth');
 
+// The `/api/posts` endpoint
+
 router.post('/', withAuth, async (req, res) => {
   // create a new post
   try {
@@ -19,6 +21,7 @@ router.post('/', withAuth, async (req, res) => {
 });
 
 router.delete('/:id', withAuth, async (req, res) => {
+   // delete post by id
   try {
     const postData = await Post.destroy({
       where: {
@@ -39,6 +42,7 @@ router.delete('/:id', withAuth, async (req, res) => {
 });
 
 router.put('/:id', withAuth, async (req, res) => {
+  // update post by id
   try {
     const postData = await Post.update({
       title: req.body.title,
@@ -57,7 +61,6 @@ router.put('/:id', withAuth, async (req, res) => {
 
     res.status(200).json(postData);
   } catch (err) {
-    console.log(err)
     res.status(500).json(err);
   }
 });
