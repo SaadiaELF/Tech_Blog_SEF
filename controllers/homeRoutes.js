@@ -30,12 +30,11 @@ router.get('/', async (req, res) => {
 
     res.render('homepage', { posts, logged_in: req.session.logged_in });
   } catch (error) {
-    console.log(error);
-    res.status(500).json(error);
+    res.status(500).json("Error: Cannot render the page");
   }
 });
 
-router.get('/post/:id',  async (req, res) => {
+router.get('/post/:id', async (req, res) => {
   try {
     const postData = await Post.findByPk(req.params.id, {
       attributes: [
@@ -63,8 +62,7 @@ router.get('/post/:id',  async (req, res) => {
     res.render('post', { post, logged_in: req.session.logged_in });
 
   } catch (err) {
-    console.log(err);
-    res.status(500).json(err);
+    res.status(500).json("Error: Cannot render the page");
   }
 });
 
@@ -97,7 +95,7 @@ router.get('/post/:id/add-comment', withAuth, async (req, res) => {
 
   } catch (err) {
     console.log(err);
-    res.status(500).json(err);
+    res.status(500).json("Error: Cannot render the page");
   }
 });
 
@@ -120,7 +118,7 @@ router.get('/dashboard', async (req, res) => {
     res.render('dashboard', { posts, logged_in: req.session.logged_in });
 
   } catch (error) {
-    res.status(500).json(error);
+    res.status(500).json("Error: Cannot render the page");
   }
 });
 
@@ -148,24 +146,37 @@ router.get('/edit-post/:id', async (req, res) => {
     res.render('edit-post', { post, logged_in: req.session.logged_in });
 
   } catch (error) {
-    res.status(500).json(error);
+    res.status(500).json("Error: Cannot render the page");
   }
 });
 
 router.get('/newpost', (req, res) => {
-  res.render('newpost', { logged_in: req.session.logged_in });
-});
-router.get('/login', (req, res) => {
-  if (req.session.logged_in) {
-    res.redirect('/');
-    return;
+  try {
+    res.render('newpost', { logged_in: req.session.logged_in });
+  } catch (error) {
+    res.status(500).json("Error: Cannot render the page");
   }
-  res.render('login');
 });
 
+router.get('/login', (req, res) => {
+  try {
+    if (req.session.logged_in) {
+      res.redirect('/');
+      return;
+    }
+    res.render('login');
+
+  } catch (error) {
+    res.status(500).json("Error: Cannot render the page");
+  }
+});
 
 router.get('/signup', (req, res) => {
-  res.render('signup');
+  try {
+    res.render('signup');
+  } catch (error) {
+    res.status(500).json("Error: Cannot render the page");
+  }
 });
 
 

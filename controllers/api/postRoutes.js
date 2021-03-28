@@ -15,7 +15,7 @@ router.post('/', withAuth, async (req, res) => {
 
     res.status(200).json(newPost);
   } catch (err) {
-    res.status(400).json(err);
+    res.status(400).json("Error: Cannot add the post");
   }
 
 });
@@ -37,7 +37,7 @@ router.delete('/:id', withAuth, async (req, res) => {
 
     res.status(200).json(postData);
   } catch (err) {
-    res.status(500).json(err);
+    res.status(500).json("Error: Cannot delete the post");
   }
 });
 
@@ -61,7 +61,7 @@ router.put('/:id', withAuth, async (req, res) => {
 
     res.status(200).json(postData);
   } catch (err) {
-    res.status(500).json(err);
+    res.status(500).json("Error: Cannot update the post");
   }
 });
 

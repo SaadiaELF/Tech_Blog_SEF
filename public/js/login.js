@@ -17,7 +17,7 @@ const loginFormHandler = async (event) => {
       // If successful, redirect the browser to the homepage
       document.location.replace('/');
     } else {
-      alert('Failed to log in');
+      alert("Failed to log in! Verify your Username or password or Sign up if you don't have an account");
     }
   }
 };

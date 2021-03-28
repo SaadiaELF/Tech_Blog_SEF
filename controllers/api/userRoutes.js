@@ -32,7 +32,7 @@ router.post('/login', async (req, res) => {
     });
 
   } catch (err) {
-    res.status(400).json(err);
+    res.status(400).json("Error: Cannot login");
   }
 });
 
@@ -52,7 +52,7 @@ router.post('/signup', async (req, res) => {
     });
 
   } catch (err) {
-    res.status(400).json(err);
+    res.status(400).json("Error: Cannot sign up");
   }
 });
 
