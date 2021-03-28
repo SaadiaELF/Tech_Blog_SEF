@@ -1,0 +1,19 @@
+[
+  {
+    "comment_text": "Interesting article !",
+    "time": "2021-03-24  13:30:00",
+    "author_id" : "2",
+    "post_id" : "1"
+  },
+  {
+    "comment_text": "Thank you.",
+    "time": "2020-05-15  10:10:00",
+    "author_id" : "4",
+    "post_id" : "2"
+  },
+  {
+    "comment_text": "Good explanation.",
+    "time": "2021-05-18  00:15:00",
+    "author_id" : "3",
+    "post_id" : "2"  }
+]
