@@ -2,6 +2,7 @@ const router = require('express').Router();
 const { User, Post, Comment } = require('../models');
 const withAuth = require('../utils/auth');
 
+// Render homepage
 router.get('/', async (req, res) => {
   try {
     const postData = await Post.findAll({
@@ -34,6 +35,7 @@ router.get('/', async (req, res) => {
   }
 });
 
+// Render post page
 router.get('/post/:id', async (req, res) => {
   try {
     const postData = await Post.findByPk(req.params.id, {
@@ -66,6 +68,7 @@ router.get('/post/:id', async (req, res) => {
   }
 });
 
+// Render add-comment page if the user logged in
 router.get('/post/:id/add-comment', withAuth, async (req, res) => {
   try {
     const postData = await Post.findByPk(req.params.id, {
@@ -99,6 +102,7 @@ router.get('/post/:id/add-comment', withAuth, async (req, res) => {
   }
 });
 
+// Render dashboard if the user logged in
 router.get('/dashboard', withAuth, async (req, res) => {
   try {
     const postData = await Post.findAll({
@@ -122,6 +126,7 @@ router.get('/dashboard', withAuth, async (req, res) => {
   }
 });
 
+// Render edit-post page if the user logged in
 router.get('/edit-post/:id', withAuth, async (req, res) => {
   try {
     const postData = await Post.findOne({
@@ -150,6 +155,7 @@ router.get('/edit-post/:id', withAuth, async (req, res) => {
   }
 });
 
+// Render newpost form if the user logged in
 router.get('/newpost', withAuth, (req, res) => {
   try {
     res.render('newpost', { logged_in: req.session.logged_in });
@@ -158,6 +164,7 @@ router.get('/newpost', withAuth, (req, res) => {
   }
 });
 
+// Render homepage if the user logged in else render login page
 router.get('/login', (req, res) => {
   try {
     if (req.session.logged_in) {
@@ -171,6 +178,7 @@ router.get('/login', (req, res) => {
   }
 });
 
+// Render signup page
 router.get('/signup', (req, res) => {
   try {
     res.render('signup');
