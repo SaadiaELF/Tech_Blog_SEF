@@ -99,7 +99,7 @@ router.get('/post/:id/add-comment', withAuth, async (req, res) => {
   }
 });
 
-router.get('/dashboard', async (req, res) => {
+router.get('/dashboard', withAuth, async (req, res) => {
   try {
     const postData = await Post.findAll({
       where: {
@@ -122,7 +122,7 @@ router.get('/dashboard', async (req, res) => {
   }
 });
 
-router.get('/edit-post/:id', async (req, res) => {
+router.get('/edit-post/:id', withAuth, async (req, res) => {
   try {
     const postData = await Post.findOne({
       where: {
@@ -150,7 +150,7 @@ router.get('/edit-post/:id', async (req, res) => {
   }
 });
 
-router.get('/newpost', (req, res) => {
+router.get('/newpost', withAuth, (req, res) => {
   try {
     res.render('newpost', { logged_in: req.session.logged_in });
   } catch (error) {
